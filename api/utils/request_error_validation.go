@@ -60,8 +60,8 @@ func RequestErrorValidation(ctx *fiber.Ctx, err error) error {
 			Err     string `json:"err"`
 			Code    int    `json:"code"`
 		}{
-			Message: e.Value,
-			Err:     e.Key,
+			Message: e.Message,
+			Err:     e.Err,
 			Code:    400,
 		}
 

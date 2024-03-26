@@ -61,8 +61,8 @@ func (s *UserService) validateUser(ctx *fiber.Ctx, collection *mongo.Collection,
 	if err := collection.FindOne(ctx.Context(), filter).Decode(&user); err != nil {
 		if err == mongo.ErrNoDocuments {
 			erro := models.CustomError{
-				Key:   "bad_request",
-				Value: "email já cadastrado",
+				Err:     "bad_request",
+				Message: "email já cadastrado",
 			}
 
 			return &erro
