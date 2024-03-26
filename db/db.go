@@ -23,6 +23,11 @@ func InitDB() {
 	if err != nil {
 		panic(err)
 	}
+	defer func() {
+		if err := client.Disconnect(context.TODO()); err != nil {
+			panic(err)
+		}
+	}()
 
 	dbName := os.Getenv("DATABASE_NAME")
 	if dbName == "" {
