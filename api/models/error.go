@@ -22,9 +22,6 @@ type Error struct {
 type CustomError struct {
 	// Error message.
 	Message string `json:"message" bson:"message"`
-
-	// Error description.
-	Err string `json:"error" bson:"error"`
 }
 
 func (r *Error) Error() string {
@@ -32,7 +29,7 @@ func (r *Error) Error() string {
 }
 
 func (e *CustomError) Error() string {
-	return fmt.Sprintf("%s: %s", e.Message, e.Err)
+	return fmt.Sprintf("%s ", e.Message)
 }
 
 func NewBadRequestError(message string) *Error {

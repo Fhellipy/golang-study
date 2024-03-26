@@ -61,7 +61,7 @@ func RequestErrorValidation(ctx *fiber.Ctx, err error) error {
 			Code    int    `json:"code"`
 		}{
 			Message: e.Message,
-			Err:     e.Err,
+			Err:     "bad_request",
 			Code:    400,
 		}
 
